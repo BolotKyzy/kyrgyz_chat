@@ -6,9 +6,11 @@ class CustomButtonWidget extends StatelessWidget {
   final TextStyle buttonTextStyle;
   double buttonVer = 10;
   double buttonHor = 40;
+  final VoidCallback? onTap;
 
   CustomButtonWidget(
       {super.key,
+      required this.onTap,
       required this.buttonText,
       required this.buttonTextStyle,
       required this.buttonHor,
@@ -16,16 +18,19 @@ class CustomButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          color: AppColors.mainColor,
-          borderRadius: BorderRadius.all(Radius.circular(30))),
-      child: Padding(
-        padding:
-            EdgeInsets.symmetric(vertical: buttonVer, horizontal: buttonHor),
-        child: Text(
-          buttonText!,
-          style: buttonTextStyle,
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        decoration: BoxDecoration(
+            color: AppColors.mainColor,
+            borderRadius: BorderRadius.all(Radius.circular(30))),
+        child: Padding(
+          padding:
+              EdgeInsets.symmetric(vertical: buttonVer, horizontal: buttonHor),
+          child: Text(
+            buttonText!,
+            style: buttonTextStyle,
+          ),
         ),
       ),
     );
