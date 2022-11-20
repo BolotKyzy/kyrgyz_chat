@@ -14,7 +14,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.WALKTHROUGH;
+  static const INITIAL = Routes.REDIRECT;
 
   static final routes = [
     GetPage(
@@ -34,7 +34,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.REDIRECT,
-      page: () => const RedirectView(),
+      page: () => RedirectView(),
       binding: RedirectBinding(),
     ),
   ];
